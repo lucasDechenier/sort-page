@@ -1,6 +1,5 @@
 <template>
-  <div>
-    Esta funcionando
+  <div class="full-width">
     <router-view></router-view>
   </div>
 </template>

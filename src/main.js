@@ -1,7 +1,10 @@
 import Vue from 'vue'
+import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import './styles/utils.css'
 
 Vue.config.productionTip = false
 

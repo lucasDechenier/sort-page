@@ -1,0 +1,13 @@
+.centralize{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.full-width{
+  width: 100% !important;
+}

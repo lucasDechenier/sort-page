@@ -1,15 +1,19 @@
 <template>
   <div>
-    First view
+    <header-top></header-top>
   </div>
 </template>
 
 <script>
-export default {
+import HeaderTop from "../components/HeaderTop.vue"
 
+export default {
+  components: {HeaderTop},
 }
 </script>
 
 <style>
-
+.bg{
+  background-color: red;
+}
 </style>
