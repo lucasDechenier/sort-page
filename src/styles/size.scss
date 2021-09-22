@@ -1,0 +1,23 @@
+@for $i from 0 through 1000 {
+  .max-w-#{$i} {
+    max-width: #{$i}px;
+  }
+  .wd-#{$i} {
+    width: #{$i}px;
+  }
+  .hg-#{$i} {
+    height: #{$i}px;
+  }
+}
+
+@for $i from 0 through 10 {
+  .font-w-#{$i}{
+    font-weight: #{$i*100};
+  }
+}
+
+@each $z in 14 15 16 25{
+  .font-s-#{$z} {
+    font-size: #{$z}px;
+  }
+}
