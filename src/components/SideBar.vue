@@ -8,11 +8,11 @@
       >
       <v-list-item-group
           active-class="bg-active"
-          v-model="options"
+          v-model="selected"
           mandatory
           class="container-lucas"
         >
-          <v-list-item class="margin">
+          <v-list-item class="margin" @click="$router.push('/')">
             <v-list-item-icon class="mr-1">
               <img class="item-icon winner" src="../assets/sort.png">
             </v-list-item-icon>
@@ -20,7 +20,7 @@
               <v-list-item-title>Sorteio</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item>
+          <v-list-item @click="$router.push('winners')">
             <v-list-item-icon class="mr-1">
               <img class="item-icon winner" src="../assets/winner.png">
             </v-list-item-icon>
@@ -36,12 +36,13 @@
 
 <script>
 export default {
+  props: { 
+    selected:{type: Number, default: 0}
+    },
   data(){
     return{
-      options: 0,
     }
-  }
-
+  },
 }
 </script>
 

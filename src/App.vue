@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="full-height-vh">
     <router-view></router-view>
   </div>
 </template>
