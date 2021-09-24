@@ -24,8 +24,8 @@
   width: 100% !important;
 }
 
-.full-height-vh{
-  height: 100vh !important;
+.min-height-vh{
+  min-height: 100vh !important;
 }
 
 .full-height{

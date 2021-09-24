@@ -1,38 +1,36 @@
 <template>
-  <div class="full-height-vh bg-color">
+  <div class="min-height-vh">
     <header-top></header-top>
     <div class="d-flex font-poppins full-height">
       <side-bar class="side-bar" :selected="1"></side-bar>
-      <div class="full-width centralize flex-column px-5 overflow">
+      <div class="full-width centralize flex-column px-5 overflow bg-color">
         <div class="max-w-1119 d-flex flex-column">
           <span class="font-s-25 font-w-7 mt-4">Todos os ganhadores</span>
-          <div class="d-flex space-between flex-row">
+          <div class="d-flex space-between flex-row mt-7">
             <div class="max-w-445 d-flex">
               <v-autocomplete
                 label="Selecione a live ao vivo"
-                filled
-                solo
+                outlined
+              background-color="#FFFFFF"
                 clearable
-                class="mt-4"
               ></v-autocomplete>
             </div>
             <div class="max-w-445 d-flex">
-              <v-autocomplete
-                label="Selecione a live ao vivo"
-                filled
-                solo
-                clearable
-                class="mt-4"
-              ></v-autocomplete>
+              <v-text-field
+                outlined
+                label="Pesquise aqui"
+                append-icon="mdi-magnify"
+              ></v-text-field>
             </div>
           </div>
-          <div class="wd-1000">
+          <div class="">
             <v-data-table
-            :headers="headers"
-            :items="desserts"
-            :items-per-page="3"
-            class="elevation-1"
-          ></v-data-table>
+              :headers="headers"
+              :items="desserts"
+              :items-per-page="8"
+              class="elevation-1"
+             :footer-props="footerProps"
+            ></v-data-table>
           </div>
         </div>
       </div>
@@ -48,6 +46,9 @@ export default {
   components: {HeaderTop, SideBar},
   data(){
     return{
+      footerProps: {
+        'items-per-page-text': 'Páginas',
+      },
       headers: [
           {
             text: 'Nome',
@@ -60,84 +61,68 @@ export default {
         ],
       desserts: [
         {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          iron: '1%',
-        },
-        {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
+          name: 'Anderson Moura',
+          calories: 'Rondonia',
+          fat: 'Anderson023am@gmail.com',
+          carbs: 'Live 22',
           protein: 4.3,
           iron: '1%',
         },
         {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: '7%',
-        },
-        {
-          name: 'Cupcake',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
+          name: 'Anderson Moura',
+          calories: 'Rondonia',
+          fat: 'Anderson023am@gmail.com',
+          carbs: 'Live 22',
           protein: 4.3,
-          iron: '8%',
+          iron: '1%',
         },
         {
-          name: 'Gingerbread',
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
-          iron: '16%',
+          name: 'Anderson Moura',
+          calories: 'Rondonia',
+          fat: 'Anderson023am@gmail.com',
+          carbs: 'Live 22',
+          protein: 4.3,
+          iron: '1%',
         },
         {
-          name: 'Jelly bean',
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
-          iron: '0%',
+          name: 'Anderson Moura',
+          calories: 'Rondonia',
+          fat: 'Anderson023am@gmail.com',
+          carbs: 'Live 22',
+          protein: 4.3,
+          iron: '1%',
         },
         {
-          name: 'Lollipop',
-          calories: 392,
-          fat: 0.2,
-          carbs: 98,
-          protein: 0,
-          iron: '2%',
+          name: 'Anderson Moura',
+          calories: 'Rondonia',
+          fat: 'Anderson023am@gmail.com',
+          carbs: 'Live 22',
+          protein: 4.3,
+          iron: '1%',
         },
         {
-          name: 'Honeycomb',
-          calories: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5,
-          iron: '45%',
+          name: 'Anderson Moura',
+          calories: 'Rondonia',
+          fat: 'Anderson023am@gmail.com',
+          carbs: 'Live 22',
+          protein: 4.3,
+          iron: '1%',
         },
         {
-          name: 'Donut',
-          calories: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9,
-          iron: '22%',
+          name: 'Anderson Moura',
+          calories: 'Rondonia',
+          fat: 'Anderson023am@gmail.com',
+          carbs: 'Live 22',
+          protein: 4.3,
+          iron: '1%',
         },
         {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%',
+          name: 'Anderson Moura',
+          calories: 'Rondonia',
+          fat: 'Anderson023am@gmail.com',
+          carbs: 'Live 22',
+          protein: 4.3,
+          iron: '1%',
         },
       ],
     }
@@ -146,6 +131,13 @@ export default {
 </script>
 
 <style>
+.v-text-field--outlined fieldset{
+  border: 1px solid #E7E7F4 !important;
+}
+i.mdi-magnify{
+  color: #000000 !important;
+  
+}
 .btn-text{
   color: #FAFAFD;
   text-transform: none;

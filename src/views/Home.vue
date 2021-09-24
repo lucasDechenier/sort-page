@@ -1,22 +1,22 @@
 <template>
-  <div class="full-height bg-color">
+  <div class="min-height-vh">
     <header-top></header-top>
-    <div class="d-flex font-poppins">
+    <div class="d-flex font-poppins full-height">
       <side-bar class="side-bar" :selected="0"></side-bar>
-      <div class="full-width centralize flex-column px-5 overflow">
+      <div class="full-width centralize flex-column px-5 overflow bg-color">
         <div class="max-w-988 d-flex flex-column">
           <img class="responsive-image mobile" src="../assets/enem.png">
           <span class="font-s-25 font-w-7 mt-4">Sorteio da live</span>
-          <div class="max-w-445 d-flex">
+          <div class="max-w-445 d-flex mb-3">
             <v-autocomplete
               label="Selecione a live ao vivo"
-              filled
-              solo
+              outlined
+              background-color="#FFFFFF"
               clearable
               class="mt-4"
             ></v-autocomplete>
           </div>
-          <div class="b-shadow d-flex flex-column mb-4 max-w-786">
+          <div class="b-shadow d-flex flex-column mb-8 max-w-786">
             <tr class="hg-15 color-other b-shadow"></tr>
             <tr v-for="(item, index) in desserts" :key="index" class="mt-3 hg-31 centralize" :class="index%2 == 0?'color' : 'color-other'">
               <span class="ml-4 font-w-5 font-s-14">
@@ -60,15 +60,13 @@ export default {
           protein: 4.0,
           iron: '1%',
         },
-        {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          iron: '1%',
-        },
+        
       ],
+    }
+  },
+  methods:{
+    list(){
+      
     }
   }
 }

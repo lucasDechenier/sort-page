@@ -1,7 +1,7 @@
 <template>
-  <div class="full-height-vh">
+  <v-app id="app">
     <router-view></router-view>
-  </div>
+  </v-app>
 </template>
 
 <script>

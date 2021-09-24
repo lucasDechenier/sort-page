@@ -5,7 +5,6 @@
         icon
         color="#01048A"
         fab
-        elevation="24"
         @click.stop="drawer = !drawer"
       >
         <v-icon>
