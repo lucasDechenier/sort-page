@@ -8,7 +8,7 @@
       >
       <v-list-item-group
           active-class="bg-active"
-          v-model="selected"
+          v-model="model"
           mandatory
           class="container-lucas"
         >
@@ -41,6 +41,7 @@ export default {
     },
   data(){
     return{
+      model: this.selected,
     }
   },
 }

@@ -16,7 +16,7 @@
   }
 }
 
-@each $z in 14 15 16 25{
+@each $z in (14 15 16 17 22 25 30){
   .font-s-#{$z} {
     font-size: #{$z}px;
   }
