@@ -1,32 +1,32 @@
 <template>
   <div class="min-height-vh">
-    <header-top></header-top>
+    <header-top :selected="selected"></header-top>
     <div class="d-flex font-poppins full-height">
       <side-bar class="side-bar" :selected="selected"></side-bar>
-      <div class="full-width centralize flex-column px-5 overflow bg-color">
-        <div class="max-w-1119 d-flex flex-column">
+      <div class="full-width centralize flex-column px-15 overflow bg-color">
+        <div class="max-w-1119 d-flex flex-column full-width">
           <span class="font-s-25 font-w-7 mt-4">Todos os ganhadores</span>
-          <div class="d-flex space-between flex-row mt-7">
-            <div class="max-w-445 d-flex">
-              <v-autocomplete
-                v-model="currentLive"
-                label="Selecione a live ao vivo"
-                outlined
-                :items="lives"
-                :loading="loading"
-                item-text="nome"
-                item-value="id"
-                background-color="#FFFFFF"
-                clearable
-              ></v-autocomplete>
-            </div>
-            <div class="max-w-445 d-flex">
-              <v-text-field
-                outlined
-                label="Pesquise aqui"
-                append-icon="mdi-magnify"
-              ></v-text-field>
-            </div>
+          <div class="d-flex space-between search mt-7">
+            <v-autocomplete
+              v-model="currentLive"
+              label="Selecione a live ao vivo"
+              outlined
+              full-width
+              :items="lives"
+              :loading="loading"
+              item-text="nome"
+              item-value="id"
+              background-color="#FFFFFF"
+              class="max-w-445 search-input"
+              clearable
+            ></v-autocomplete>
+            <v-text-field
+              outlined
+              v-model="textFilter"
+              label="Pesquise aqui"
+              append-icon="mdi-magnify"
+              class="max-w-332 d-flex search-input"
+            ></v-text-field>
           </div>
           <div class="">
             <v-data-table
@@ -60,22 +60,23 @@ export default {
       },
       loading: false,
       headers: [
-        { text: 'Nome', align: 'start', value: 'usuario' },
-        { text: 'Estado', value: 'estado' },
-        { text: 'Email', value: 'email' },
-        { text: 'Live', value: 'live' },
+        { text: 'Nome', align: 'start', value: 'usuario', sortable:false },
+        { text: 'Estado', value: 'estado', sortable:false },
+        { text: 'Email', value: 'email', sortable:false },
+        { text: 'Live', value: 'live', sortable:false },
       ],
       users: [],
       selected: 1,
       lives: [],
       currentLive: null,
+      textFilter: null,
     }
   },
   mounted () {
     this.load()
   },
   methods:{
-    load(userFilter){
+    load(userFilter, filterText){
       this.loading = true
       WinnerService.list().then(data =>{
         if(data.success){
@@ -84,6 +85,13 @@ export default {
       }).finally(() => {
         if(userFilter) {
           this.users = this.users.filter(element => element.live_id === userFilter )
+        }
+        if(filterText){
+          this.users = this.users.filter(element => {
+            return(
+              element.usuario.toLowerCase().indexOf(filterText.toLowerCase()) > - 1
+            )
+          })
         }
         this.loading = false
       })
@@ -97,8 +105,11 @@ export default {
   },
   watch:{
     currentLive: function handler(val){
-      this.load(val)
+      this.load(val,this.textFilter)
     },
+    textFilter: function handler(val){
+      this.load(this.currentLive,val)
+    }
   }
 }
 </script>
@@ -107,37 +118,34 @@ export default {
 .v-text-field--outlined fieldset{
   border: 1px solid #E7E7F4 !important;
 }
+
 i.mdi-magnify{
   color: #000000 !important;
   
-}
-.btn-text{
-  color: #FAFAFD;
-  text-transform: none;
-}
-
-.color{
-  background: #E6E7FF;
-}
-
-.color-other{
-  background: #CCCDFF;
-}
-
-.b-shadow{
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .bg-color{
   background: #FAFAFD;
 }
-@media (max-width: 900px) {
-  .mobile{
-    object-fit: cover !important;
-    min-height: 320px !important;
+
+@media (max-width: 1150px) {
+  .search-input{
+    max-width: 300px !important;
   }
+}
+
+@media (max-width: 900px) {
   .side-bar{
     display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .search{
+    flex-direction: column !important;
+  }
+  .search-input{
+    max-width: none !important;
   }
 }
 </style>

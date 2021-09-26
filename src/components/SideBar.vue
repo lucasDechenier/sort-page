@@ -13,8 +13,8 @@
           class="container-lucas"
         >
           <v-list-item class="margin" @click="$router.push('/')">
-            <v-list-item-icon class="mr-1">
-              <img class="item-icon winner" src="../assets/sort.png">
+            <v-list-item-icon class="mr-1 mr-4">
+              <img class="item-icon" src="../assets/sort.png">
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>Sorteio</v-list-item-title>
@@ -22,7 +22,7 @@
           </v-list-item>
           <v-list-item @click="$router.push('winners')">
             <v-list-item-icon class="mr-1">
-              <img class="item-icon winner" src="../assets/winner.png">
+              <img class="item-icon mr-11-px wd-25 hg-25" src="../assets/winner.png">
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>Ganhadores</v-list-item-title>

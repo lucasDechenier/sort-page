@@ -32,8 +32,10 @@
         <v-list-item-group
           active-class="bg-active"
           color="indigo"
+          v-model="itemSelected"
+          mandatory
         >
-          <v-list-item>
+          <v-list-item @click="$router.push('/')">
             <v-list-item-icon class="mr-3">
               <img class="item-icon" src="../assets/sort.png">
             </v-list-item-icon>
@@ -41,8 +43,8 @@
               <v-list-item-title>Sorteio</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item>
-            <v-list-item-icon>
+          <v-list-item @click="$router.push('winners')">
+            <v-list-item-icon class="mr-4 ml-n1">
               <img class="item-icon winner" src="../assets/winner.png">
             </v-list-item-icon>
             <v-list-item-content>
@@ -50,7 +52,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-list-item>
-            <v-list-item-icon class="mr-3">
+            <v-list-item-icon class="mr-17-px ml-n1">
               <img class="item-icon" src="../assets/exit.png">
             </v-list-item-icon>
             <v-list-item-content>
@@ -65,10 +67,14 @@
 
 <script>
 export default {
+  props: { 
+    selected:{type: Number, default: 0}
+  },
   name: "headerTop",
     data() {
       return {
         drawer: false,
+        itemSelected: this.selected,
         mensagem: "Isso vai aparecer no slot.",
 
       };
@@ -85,7 +91,6 @@ export default {
 .winner{
   width: 25px !important;
   height: 25px !important;
-  margin-right: 14px;
 }
 
 .item-icon{

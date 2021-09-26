@@ -1,4 +1,4 @@
-@for $i from 0 through 1000 {
+@for $i from 0 through 1200 {
   .max-w-#{$i} {
     max-width: #{$i}px;
   }
@@ -9,6 +9,13 @@
     height: #{$i}px;
   }
 }
+
+@for $i from 0 through 20 {
+  .mr-#{$i}-px {
+    margin-right: #{$i}px !important;
+  }
+}
+
 
 @for $i from 0 through 10 {
   .font-w-#{$i}{

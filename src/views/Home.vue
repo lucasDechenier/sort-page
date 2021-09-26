@@ -1,9 +1,9 @@
 <template>
   <div class="min-height-vh">
-    <header-top></header-top>
+    <header-top :selected="selected"></header-top>
     <div class="d-flex font-poppins full-height">
       <side-bar class="side-bar" :selected="selected"></side-bar>
-      <div class="full-width centralize flex-column px-5 overflow bg-color">
+      <div class="full-width centralize flex-column px-10 overflow bg-color">
         <div class="max-w-988 d-flex flex-column">
           <img class="responsive-image mobile" src="../assets/enem.png">
           <span class="font-s-25 font-w-7 mt-4">Sorteio da live</span>
@@ -42,7 +42,6 @@
               dark
               min-width="205"
               min-height="48"
-              class="mb-5"
               @click="sort"
             >
               <span class="btn-text font-s-16">
