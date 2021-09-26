@@ -70,17 +70,27 @@
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </div>
-          <div class="d-flex flex-column centralize font-poppins">
+          <div class="d-flex flex-column centralize font-poppins px-8">
             <span class="mt-5 font-w-7 font-s-30 text-color">
             Parabéns!
             </span>
-            <div class="mt-5 sort-name font-w-7 font-s-17 centralize flex-column justify-content-center">
+            <div class="mt-5 max-w-424 sort-name font-w-7 font-s-17 centralize flex-column justify-content-center full-width ">
               <span class="sort-name-text">
                 {{ lastUser.usuario }}
               </span>
             </div>
             <div class="mt-5 font-w-5 font-s-22 text-color">
               Você foi sorteado(a)!
+            </div>
+            <div class="d-flex full-width space-between hg-125">
+              <div class="mt-6 ml-5 position-relative">
+                <img src="../assets/plant1.png" class="plant1">
+                <img src="../assets/shadow.png" class="shadow1">
+              </div>
+              <div class="mb-5 mr-5 position-relative">
+                <img src="../assets/plant2.png" class="plant2">
+                <img src="../assets/shadow.png" class="shadow2">
+              </div>
             </div>
           </div>
         </div>
@@ -144,6 +154,32 @@ export default {
 </script>
 
 <style>
+.plant1{
+  z-index: 1;
+  top:  -5px;
+  left: 15px;
+  position: absolute;
+}
+
+.shadow1{
+  position: absolute;
+  left: 28px;
+  top: 30px
+}
+
+.plant2{
+  z-index: 1;
+  top: 10px;
+  right: 40px;
+  position: absolute;
+}
+
+.shadow2{
+  right: -11px;
+  top: 20px;
+  position: absolute;
+}
+
 .bg-image{
   background-image: url("../assets/confeti.png");
 
@@ -152,7 +188,6 @@ export default {
 .sort-name{
   background-color: rgba(188, 190, 255, 0.2);
   border-radius: 25.5px;
-  min-width: 424px;
   min-height: 51px;
   color: rgba(45, 45, 45, 1);
 }
